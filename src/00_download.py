@@ -32,8 +32,9 @@ from config import (ACTIVE_SINCE, CHANGELOG_END_SERIAL, DEPSDEV, OSV_URL, PART_S
                     PYPI_JSON, RAW, USER_AGENT, pypi_client)
 
 MANIFEST_LOCK = threading.Lock()
+# A cut-off response sometimes arrives without any error, and only fails when parsed as JSON.
 TRANSIENT = (urllib.error.URLError, http.client.HTTPException, socket.timeout,
-             ConnectionError, TimeoutError, xmlrpc.client.ProtocolError)
+             ConnectionError, TimeoutError, xmlrpc.client.ProtocolError, json.JSONDecodeError)
 
 
 def log(*args):
@@ -229,7 +230,7 @@ class Shards:
 def fetch_project(name, shards, missing_log, counter):
     url = PYPI_JSON.format(name=urllib.parse.quote(name, safe=""))
     try:
-        doc = json.loads(retry(lambda: http_get(url, 60)))
+        doc = retry(lambda: json.loads(http_get(url, 60)))
     except urllib.error.HTTPError as e:
         if e.code != 404:
             raise

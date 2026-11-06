@@ -14,3 +14,4 @@ python src/06_part2_stream.py watermarks
 python src/06_part2_stream.py live --minutes 30
 python src/07_part2_evaluate.py
 python src/08_figures.py
+python tests/check_results.py

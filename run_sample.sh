@@ -18,4 +18,5 @@ python src/06_part2_stream.py watermarks --wm-pace 0.3 --watermarks "10 minutes,
 python src/06_part2_stream.py live --minutes 2
 python src/07_part2_evaluate.py
 python src/08_figures.py
+python tests/check_results.py
 echo "Sample run finished: see data/sample/results and data/sample/figures"
