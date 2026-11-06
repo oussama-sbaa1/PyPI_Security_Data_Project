@@ -1,0 +1,19 @@
+name: pypi-security
+
+services:
+  spark:
+    build:
+      context: .
+    image: pypi-security-spark
+    volumes:
+      - ./:/home/jovyan/project
+      # Shuffle files and streaming state stay inside Docker: far faster than a Windows bind mount.
+      - spark-tmp:/tmp/spark
+    environment:
+      - SPARK_LOCAL_DIRS=/tmp/spark
+    command: start-notebook.py --NotebookApp.token='' --NotebookApp.password='' --no-browser
+    ports:
+      - 8890:8888
+
+volumes:
+  spark-tmp:

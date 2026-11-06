@@ -1,0 +1,10 @@
+# Data is produced by src/00_download.py and never committed.
+data/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+spark-warehouse/
+metastore_db/
+derby.log
+checkpoints/
+*.log
