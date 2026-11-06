@@ -27,7 +27,7 @@ OSV_URL = "https://storage.googleapis.com/osv-vulnerabilities/PyPI/all.zip"
 PYPI_XMLRPC = "https://pypi.org/pypi"
 PYPI_JSON = "https://pypi.org/pypi/{name}/json"
 DEPSDEV = "https://api.deps.dev"
-USER_AGENT = "dpa-pypi-security-study/1.0 (+https://github.com/oussama-sbaa1/PyPI_Security_Project)"
+USER_AGENT = "dpa-pypi-security-study/1.0 (+https://github.com/oussama-sbaa1/PyPI_Security_Data_Project)"
 
 
 class _Transport(xmlrpc.client.SafeTransport):

@@ -1,4 +1,4 @@
-# PyPI Security Project
+# PyPI Security Data Project
 
 **Which vulnerable open-source Python packages put the most of the ecosystem at risk, and how fast does the ecosystem react?**
 
